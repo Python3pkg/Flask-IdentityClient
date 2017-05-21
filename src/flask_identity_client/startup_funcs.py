@@ -1,7 +1,7 @@
 # coding: UTF-8
-from __future__ import absolute_import, division, print_function, unicode_literals
 
-import urllib
+
+import urllib.request, urllib.parse, urllib.error
 from functools import wraps, partial
 from collections import namedtuple
 from time import time
@@ -133,6 +133,6 @@ def join_path(host, path):
     return '/'.join((host, path))
 
 
-escape = lambda s: urllib.quote(s.encode('utf-8'), safe='~ ').replace(' ', '+')
+escape = lambda s: urllib.parse.quote(s.encode('utf-8'), safe='~ ').replace(' ', '+')
 
 Resources = namedtuple('Resources', 'data etag expires')
